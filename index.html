@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('wallpaper.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 100px; /* jarak tombol dari bawah */
+    }
+
+    .btn {
+      background: #FF7043;
+      color: white;
+      padding: 15px 40px;
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 15px;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    .btn:hover {
+      background: #E64A19;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <button class="btn" onclick="playMusic()">KLIK DISINI NGE!</button>
+  </div>
+
+  <audio id="lagu">
+    <source src="lagu.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function playMusic() {
+      document.getElementById("lagu").play();
+    }
+  </script>
+
+</body>
+</html>
