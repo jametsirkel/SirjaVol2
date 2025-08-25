@@ -41,7 +41,7 @@
 <body>
 
   <div class="container">
-    <button class="btn" onclick="playMusic()">KLIK DISINI NGE!</button>
+    <button class="btn" onclick="klikTombol()">KLIK DISINI NGE!</button>
   </div>
 
   <audio id="lagu">
@@ -49,8 +49,14 @@
   </audio>
 
   <script>
-    function playMusic() {
+    function klikTombol() {
+      // mainkan musik
       document.getElementById("lagu").play();
+
+      // redirect ke halaman baru setelah musik mulai
+      setTimeout(() => {
+        window.location.href = "https://contohwebsite.com";
+      }, 500); // kasih delay 0.5 detik biar musik sempat play
     }
   </script>
 
