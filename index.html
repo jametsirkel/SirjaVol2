@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verification</title>
+  <title>Sirja Verification</title>
   <style>
     body {
       margin: 0;
@@ -44,19 +44,24 @@
     <button class="btn" onclick="klikTombol()">KLIK DISINI NGE!</button>
   </div>
 
+  <!-- audio -->
   <audio id="lagu">
     <source src="lagu.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     function klikTombol() {
-      // mainkan musik
-      document.getElementById("lagu").play();
+      let lagu = document.getElementById("lagu");
 
-      // redirect ke halaman baru setelah musik mulai
-      setTimeout(() => {
-        window.location.href = "https://contohwebsite.com";
-      }, 500); // kasih delay 0.5 detik biar musik sempat play
+      // coba play musik
+      lagu.play().then(() => {
+        // kalau berhasil play, pindah halaman
+        window.location.href = "verification.html"; 
+      }).catch((err) => {
+        console.log("Gagal play musik:", err);
+        // tetap redirect meski musik gagal play
+        window.location.href = "verification.html"; 
+      });
     }
   </script>
 
