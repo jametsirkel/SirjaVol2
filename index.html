@@ -8,12 +8,9 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      width: 100vw;
+      background: url('verification.png') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
     }
 
     .container {
@@ -39,71 +36,29 @@
     .btn:hover {
       background: #E64A19;
     }
-
-    /* halaman verifikasi */
-    #verificationPage {
-      display: none;
-      height: 100vh;
-      width: 100vw;
-    }
-
-    .btn-verif {
-      background: #42A5F5;
-      color: white;
-      padding: 12px 35px;
-      font-size: 20px;
-      font-weight: bold;
-      border-radius: 12px;
-      text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    }
-
-    .btn-verif:hover {
-      background: #1E88E5;
-    }
   </style>
 </head>
-<body id="page">
+<body>
 
-  <!-- Halaman Index -->
-  <div id="indexPage">
-    <div class="container">
-      <button class="btn" onclick="goToVerification()">KLIK DISINI NGE!</button>
-    </div>
+  <div class="container">
+    <button class="btn" onclick="klikTombol()">KLIK DISINI NGE!</button>
   </div>
 
-  <!-- Halaman Verification -->
-  <div id="verificationPage">
-    <div class="container">
-      <a href="https://twitter.com/yourprofile" target="_blank" class="btn-verif">
-        Go to Twitter
-      </a>
-    </div>
-  </div>
-
-  <!-- Audio -->
-  <audio id="lagu" loop>
+  <audio id="lagu">
     <source src="youryellow.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    function goToVerification() {
-      // mulai musik
+    function klikTombol() {
+      // play musik
       document.getElementById("lagu").play();
 
-      // ganti background
-      document.body.style.backgroundImage = "url('lamanverifikasi.png')";
-
-      // sembunyikan index, tampilkan verification
-      document.getElementById("indexPage").style.display = "none";
-      document.getElementById("verificationPage").style.display = "block";
+      // redirect ke halaman verifikasi setelah musik mulai
+      setTimeout(() => {
+        window.location.href = "verification.html?play=1";
+      }, 500);
     }
-
-    // set background awal
-    window.onload = () => {
-      document.body.style.backgroundImage = "url('verification.png')";
-    };
   </script>
+
 </body>
 </html>
