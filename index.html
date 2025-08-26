@@ -3,52 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sirja Verifian</title>
+  <title>Sirja Verifan</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('verification.png') no-repeat center center fixed; /* ganti dengan background index */
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      width: 100vw;
       background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      align-items: flex-end;
+      padding-bottom: 100px;
     }
+
     .btn {
-      background: #ff5722;
+      background: #FF7043;
       color: white;
-      padding: 20px 50px;
-      font-size: 24px;
+      padding: 15px 40px;
+      font-size: 22px;
       font-weight: bold;
-      border-radius: 20px;
+      border-radius: 15px;
+      text-decoration: none;
       cursor: pointer;
-      border: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
+
     .btn:hover {
-      background: #e64a19;
+      background: #E64A19;
+    }
+
+    /* halaman verifikasi */
+    #verificationPage {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .btn-verif {
+      background: #42A5F5;
+      color: white;
+      padding: 12px 35px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    .btn-verif:hover {
+      background: #1E88E5;
     }
   </style>
 </head>
-<body>
-  <button class="btn" onclick="mulai()">KLIK DISINI NGE!</button>
+<body id="page">
 
+  <!-- Halaman Index -->
+  <div id="indexPage">
+    <div class="container">
+      <button class="btn" onclick="goToVerification()">KLIK DISINI NGE!</button>
+    </div>
+  </div>
+
+  <!-- Halaman Verification -->
+  <div id="verificationPage">
+    <div class="container">
+      <a href="https://twitter.com/yourprofile" target="_blank" class="btn-verif">
+        Go to Twitter
+      </a>
+    </div>
+  </div>
+
+  <!-- Audio -->
   <audio id="lagu" loop>
     <source src="youryellow.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    function mulai() {
-      const lagu = document.getElementById("lagu");
-      lagu.play().then(() => {
-        localStorage.setItem("musikPlay", "true");
-        localStorage.setItem("musikTime", lagu.currentTime);
-        window.location.href = "verification.html";
-      }).catch(err => {
-        alert("Klik lagi kalau musik belum jalan 😅");
-      });
+    function goToVerification() {
+      // mulai musik
+      document.getElementById("lagu").play();
+
+      // ganti background
+      document.body.style.backgroundImage = "url('lamanverifikasi.png')";
+
+      // sembunyikan index, tampilkan verification
+      document.getElementById("indexPage").style.display = "none";
+      document.getElementById("verificationPage").style.display = "block";
     }
+
+    // set background awal
+    window.onload = () => {
+      document.body.style.backgroundImage = "url('verification.png')";
+    };
   </script>
 </body>
 </html>
