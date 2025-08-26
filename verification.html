@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('lamanverifikasi.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 40px;
+      color: #FFEB3B;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 800px;
+      margin: 40px auto;
+    }
+
+    .btn {
+      background: #FF7043;
+      color: black;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #E64A19;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>VERIFICATION</h1>
+  <p>welcome to sirkel, nge!</p>
+
+  <div class="grid">
+    <a class="btn" href="https://twitter.com/username1" target="_blank">@username1</a>
+    <a class="btn" href="https://twitter.com/username2" target="_blank">@username2</a>
+    <a class="btn" href="https://twitter.com/username3" target="_blank">@username3</a>
+    <a class="btn" href="https://twitter.com/username4" target="_blank">@username4</a>
+    <a class="btn" href="https://twitter.com/username5" target="_blank">@username5</a>
+    <a class="btn" href="https://twitter.com/username6" target="_blank">@username6</a>
+    <!-- tambahin sendiri sesuai kebutuhan -->
+  </div>
+
+  <audio id="lagu" autoplay>
+    <source src="youryellow.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // cek apakah datang dari tombol klik
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("play") === "1") {
+      document.getElementById("lagu").play();
+    }
+  </script>
+
+</body>
+</html>
