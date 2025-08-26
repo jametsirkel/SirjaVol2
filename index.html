@@ -3,67 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sirja Verification</title>
+  <title>Index</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('verification.png') no-repeat center center fixed;
+      background: url('verification.png') no-repeat center center fixed; /* ganti dengan background index */
       background-size: cover;
-      font-family: Arial, sans-serif;
-    }
-
-    .container {
-      height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: flex-end;
-      padding-bottom: 100px; /* jarak tombol dari bawah */
+      align-items: center;
+      height: 100vh;
     }
-
     .btn {
-      background: #FF7043;
+      background: #ff5722;
       color: white;
-      padding: 15px 40px;
-      font-size: 22px;
+      padding: 20px 50px;
+      font-size: 24px;
       font-weight: bold;
-      border-radius: 15px;
-      text-decoration: none;
+      border-radius: 20px;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
-
     .btn:hover {
-      background: #E64A19;
+      background: #e64a19;
     }
   </style>
 </head>
 <body>
+  <button class="btn" onclick="mulai()">KLIK DISINI NGE!</button>
 
-  <div class="container">
-    <button class="btn" onclick="klikTombol()">KLIK DISINI NGE!</button>
-  </div>
-
-  <!-- audio -->
-  <audio id="lagu">
+  <audio id="lagu" loop>
     <source src="lagu.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    function klikTombol() {
-      let lagu = document.getElementById("lagu");
-
-      // coba play musik
+    function mulai() {
+      const lagu = document.getElementById("lagu");
       lagu.play().then(() => {
-        // kalau berhasil play, pindah halaman
-        window.location.href = "verification.html"; 
-      }).catch((err) => {
-        console.log("Gagal play musik:", err);
-        // tetap redirect meski musik gagal play
-        window.location.href = "verification.html"; 
+        localStorage.setItem("musikPlay", "true");
+        localStorage.setItem("musikTime", lagu.currentTime);
+        window.location.href = "verification.html";
+      }).catch(err => {
+        alert("Klik lagi kalau musik belum jalan 😅");
       });
     }
   </script>
-
 </body>
 </html>
